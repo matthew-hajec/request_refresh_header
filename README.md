@@ -1,4 +1,4 @@
-# requests_refresh_header.py
+# requests_header_refresh
 
 ## Description
 
@@ -6,13 +6,13 @@ This Python module provides a function to handle HTTP refresh headers in the `re
 
 ## Installation
 
-You can use this module by importing it in your Python script. Make sure to have the `pip install requests-refresh-header` library installed in your environment. If not, you can install it using pip:
+You can use this module by importing it in your Python script. Make sure to have the `requests-header-refresh` library installed in your environment. If not, you can install it using pip:
 
 ```bash
-pip install pip install requests-refresh-header
+pip install requests-header-refresh
 ```
 
-You will also need the [requests]('https://pypi.org/project/requests/') library to use this package..
+You will also need the [requests]('https://pypi.org/project/requests/') library to use this package.
 
 ## Usage
 
@@ -20,7 +20,7 @@ First, import the necessary functions and classes:
 
 ```python
 import requests
-from requests_refresh_header import create_hook
+from requests_header_refresh import create_hook
 ```
 
 Then, create a session and a refresh handler with a timeout of 5 seconds:
