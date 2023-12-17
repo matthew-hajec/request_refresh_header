@@ -2,12 +2,12 @@
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
-name = "requests_refresh_header"
+name = "requests_header_refresh"
 version = "1.0.0"
 authors = [{ name = "mhajec21", email = "matthew.hajec02@gmail.com" }]
 description = "Adds support for the Refresh header in requests. Check out the README for more info."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.7"
 
 [tool.hatch.build.targets.wheel]
 include = ["src/"]
@@ -18,5 +18,5 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 [project.urls]
-Homepage = "https://github.com/matthew-hajec/requests_refresh_header"
-Issues = "https://github.com/matthew-hajec/requests_refresh_header/issues"
+Homepage = "https://github.com/matthew-hajec/requests_header_refresh"
+Issues = "https://github.com/matthew-hajec/requests_header_refresh/issues"
