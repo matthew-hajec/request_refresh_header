@@ -6,7 +6,7 @@ This package implements support for Refresh header in the ```requests``` package
 
 ## Usage
 
-This package relies on the `requests` package's hook feature. This feature is used by `requests_refresh_header` to check for and handle any responses with a valid `Refresh` header. 
+This package relies on the `requests` package's hook feature. This feature is used by `requests_refresh_header` to check for and handle any responses with a valid `Refresh` header. The hook WILL block while waiting the duration of the Refresh time.
 
 For further reading, check out the [official requests documentation on event hooks](https://requests.readthedocs.io/en/latest/user/advanced/#event-hooks).
 
