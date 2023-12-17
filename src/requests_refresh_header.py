@@ -18,6 +18,7 @@ NOTE: The seperator between the time and url can be a semicolon or a comma. This
 
 log = logging.getLogger(__name__)
 
+# Closure to create the hook function with arbitrary parameters.
 def create_hook(max_refresh: (int | None) = None) -> callable:
     """
     Create a hook function that processes the Refresh header in the HTTP response.

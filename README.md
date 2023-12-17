@@ -3,22 +3,16 @@
 ## Description
 
 This Python module provides a function to handle HTTP refresh headers in the `requests` library. It parses the refresh header, extracts or infers the refresh time and URL, and makes a subsequent request to the refresh URL if the refresh time is in a valid range. It also supports a refresh timeout to ignore the refresh if the refresh time is greater than the timeout.
-GitHub Copilot: Sure, I can help you improve the README.md file. Here's a more detailed and polished version:
-
-```markdown
-# requests_refresh_header.py
-
-## Description
-
-This Python module provides a function to handle HTTP refresh headers in the `requests` library. It parses the refresh header, extracts the refresh time and URL, and makes a subsequent request to the refresh URL if the refresh time is non-negative. It also supports a refresh timeout to ignore the refresh if the refresh time is greater than the timeout.
 
 ## Installation
 
-You can use this module by importing it in your Python script. Make sure to have the `requests` library installed in your environment. If not, you can install it using pip:
+You can use this module by importing it in your Python script. Make sure to have the `pip install requests-refresh-header` library installed in your environment. If not, you can install it using pip:
 
 ```bash
-pip install requests
+pip install pip install requests-refresh-header
 ```
+
+You will also need the [requests]('https://pypi.org/project/requests/') library to use this package..
 
 ## Usage
 
