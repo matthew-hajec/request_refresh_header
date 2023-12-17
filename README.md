@@ -32,3 +32,7 @@ session = requests.session(hooks={'response': [refresh_hook]})
 
 session.get('https://www.google.com/') # Refresh header will be handled for any requests from this session.
 ```
+
+## Design
+
+The header is not defined in the HTTP spec. However, it is mentioned in WHATWG as being [equivalent to the Refresh meta tag](https://html.spec.whatwg.org/dev/document-lifecycle.html#the-refresh-header). This package simulates the behavior described for the meta refresh tag with more liberal parsing (such as accepting ',' or ';' as a seperator between the time and the URL) since not all sites strictly adhere the exact format described by WHATWG.
