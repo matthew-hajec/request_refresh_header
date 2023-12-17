@@ -2,37 +2,61 @@
 
 ## Description
 
-This package implements support for Refresh header in the ```requests``` package, where the header is not treated as special. The `Refresh` header is commonly used to support the client-side polling of resources. The Refresh header is not defined by any specification, so this package aims to handle it similarly to most browsers. 
+This Python module provides a function to handle HTTP refresh headers in the `requests` library. It parses the refresh header, extracts or infers the refresh time and URL, and makes a subsequent request to the refresh URL if the refresh time is in a valid range. It also supports a refresh timeout to ignore the refresh if the refresh time is greater than the timeout.
+GitHub Copilot: Sure, I can help you improve the README.md file. Here's a more detailed and polished version:
+
+```markdown
+# requests_refresh_header.py
+
+## Description
+
+This Python module provides a function to handle HTTP refresh headers in the `requests` library. It parses the refresh header, extracts the refresh time and URL, and makes a subsequent request to the refresh URL if the refresh time is non-negative. It also supports a refresh timeout to ignore the refresh if the refresh time is greater than the timeout.
+
+## Installation
+
+You can use this module by importing it in your Python script. Make sure to have the `requests` library installed in your environment. If not, you can install it using pip:
+
+```bash
+pip install requests
+```
 
 ## Usage
 
-This package relies on the `requests` package's hook feature. This feature is used by `requests_refresh_header` to check for and handle any responses with a valid `Refresh` header. 
-
-For further reading, check out the [official requests documentation on event hooks](https://requests.readthedocs.io/en/latest/user/advanced/#event-hooks).
-
-### Example
-
-The hook can be passed into a single request, like so.
+First, import the necessary functions and classes:
 
 ```python
 import requests
-from requests_refresh_header import hook as refresh_hook
-
-# If a valid Refresh header is detected it will be handled by the hook.
-response = requests.get('https://www.google.com/', hooks={'response': [refresh_hook]})
+from requests_refresh_header import create_hook
 ```
 
-It can also be added to a session.
+Then, create a session and a refresh handler with a timeout of 5 seconds:
 
 ```python
-import requests
-from requests_refresh_header import hook as refresh_hook
-
-session = requests.session(hooks={'response': [refresh_hook]})
-
-session.get('https://www.google.com/') # Refresh header will be handled for any requests from this session.
+session = requests.Session()
+refresh_hook = create_hook(refresh_timeout=5)
 ```
 
-## Design
+Add the handler as a response hook:
 
-The header is not defined in the HTTP spec. However, it is mentioned in WHATWG as being [equivalent to the Refresh meta tag](https://html.spec.whatwg.org/dev/document-lifecycle.html#the-refresh-header). This package simulates the behavior described for the meta refresh tag with more liberal parsing (such as accepting ',' or ';' as a seperator between the time and the URL) since not all sites strictly adhere the exact format described by WHATWG.
+```python
+session.hooks = {'response': [refresh_hook]}
+```
+
+Finally, make a request:
+
+```python
+response = session.get(url)
+```
+
+In this example, `refresh_hook` will ignore the refresh if the refresh time is greater than 5 seconds. Replace `url` with the actual URL you want to make a request to. Also, adjust the `refresh_timeout` based on your needs.
+
+
+The hook could also be used for a single request instead of entire session:
+
+```python
+response = requests.get(url, hooks={'response': [refresh_hook]})
+```
+
+## Contributing
+
+Contributions are welcome.

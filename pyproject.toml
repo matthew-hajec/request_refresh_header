@@ -18,5 +18,5 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 [project.urls]
-Homepage = "https://github.com/matthew-hajec/request_refresh_header"
-Issues = "https://github.com/matthew-hajec/request_refresh_header/issues"
+Homepage = "https://github.com/matthew-hajec/requests_refresh_header"
+Issues = "https://github.com/matthew-hajec/requests_refresh_header/issues"
