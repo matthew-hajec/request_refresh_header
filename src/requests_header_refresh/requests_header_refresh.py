@@ -1,8 +1,6 @@
 import logging
 import re
 import time
-import requests
-
 
 """
 The Refresh header is a non-standard header extension introduced by Netscape.
@@ -32,7 +30,7 @@ def create_hook(max_refresh: (int | None) = None) -> callable:
     Raises:
         None
     """
-    def hook(r: requests.Response, *args, **kwargs) -> requests.Response:
+    def hook(r: requests.Response, *args, **kwargs):
         """
         Process the Refresh header in the HTTP response and perform the necessary actions.
 
