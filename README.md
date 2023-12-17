@@ -2,11 +2,11 @@
 
 ## Description
 
-This package implements support for Refresh header in the ```requests``` package, where the header is not treated as special. The Refresh header is not defined by any specification, so this package aims to handle it similarly to most browsers.
+This package implements support for Refresh header in the ```requests``` package, where the header is not treated as special. The `Refresh` header is commonly used to support the client-side polling of resources. The Refresh header is not defined by any specification, so this package aims to handle it similarly to most browsers. 
 
 ## Usage
 
-This package relies on the `requests` package's hook feature. This feature is used by `requests_refresh_header` to check for and handle any responses with a valid `Refresh` header.
+This package relies on the `requests` package's hook feature. This feature is used by `requests_refresh_header` to check for and handle any responses with a valid `Refresh` header. 
 
 For further reading, check out the [official requests documentation on event hooks](https://requests.readthedocs.io/en/latest/user/advanced/#event-hooks).
 
